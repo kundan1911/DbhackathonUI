@@ -7,6 +7,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { getAIResponse } from '@/actions/chat';
 import { Bot } from 'lucide-react';
 import { Skeleton } from '../ui/skeleton';
+import { speak } from '@/lib/speech';
 
 interface Message {
   id: string;
@@ -14,10 +15,15 @@ interface Message {
   sender: 'user' | 'ai';
 }
 
-export function ChatInterface() {
+interface ChatInterfaceProps {
+  isSpeechEnabled?: boolean;
+  language?: string;
+  setLanguage: (lang: string) => void;
+}
+
+export function ChatInterface({ isSpeechEnabled, language = 'en', setLanguage }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [language, setLanguage] = useState('en');
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,6 +46,11 @@ export function ChatInterface() {
       const aiText = await getAIResponse(text, language);
       const aiMessage: Message = { id: (Date.now() + 1).toString(), text: aiText, sender: 'ai' };
       setMessages(prev => [...prev, aiMessage]);
+
+      // Speak the response if speech is enabled
+      if (isSpeechEnabled && aiMessage.text) {
+        speak(aiMessage.text, language);
+      }
     } catch (error) {
       const errorMessage: Message = { id: (Date.now() + 1).toString(), text: "Sorry, something went wrong.", sender: 'ai' };
       setMessages(prev => [...prev, errorMessage]);
@@ -50,7 +61,7 @@ export function ChatInterface() {
 
   return (
     <div className="flex flex-col h-full bg-card rounded-lg shadow-lg w-full max-w-4xl mx-auto my-4 border">
-      <ScrollArea className="flex-1 p-6">
+      <ScrollArea className="flex-1 p-6" ref={scrollAreaRef}>
         <div className="flex flex-col gap-4">
           {messages.length === 0 && !isLoading && (
             <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground p-8">
