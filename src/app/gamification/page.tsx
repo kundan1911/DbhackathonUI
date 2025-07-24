@@ -1,4 +1,5 @@
 import { SavingsChallenge } from '@/components/gamification/SavingsChallenge';
+import { Leaderboard } from '@/components/gamification/Leaderboard';
 
 export default function GamificationPage() {
   return (
@@ -11,8 +12,9 @@ export default function GamificationPage() {
           Take on financial challenges, track your progress, and earn achievements. Building good habits can be fun!
         </p>
       </div>
-      <div className="flex justify-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <SavingsChallenge />
+        <Leaderboard />
       </div>
     </div>
   );
