@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Bot, Coins, Gamepad2 } from 'lucide-react';
+import { Bot, Coins, Gamepad2 , GraduationCap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function Header() {
@@ -24,6 +24,12 @@ export function Header() {
               <Link href="/gamification">
                 <Gamepad2 className="h-4 w-4 mr-2" />
                 Challenges
+              </Link>
+            </Button>
+            <Button variant="ghost" asChild>
+              <Link href="/education">
+                <GraduationCap className="h-4 w-4 mr-2" />
+                Education
               </Link>
             </Button>
           </nav>
