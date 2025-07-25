@@ -8,8 +8,10 @@ import { ChatControls } from '@/components/chat/ChatControls';
 export default function Home() {
   const [isSpeechEnabled, setIsSpeechEnabled] = useState(false);
   const [language, setLanguage] = useState('en');
+  // Remove the unused 'response' variable and expect the response as a parameter
   
-  const handleSendMessage = async (message: string) => {
+
+  const handleSendMessage = async (message: string, response?: { content: string }) => {
     // ...existing message sending logic...
     
     if (response && isSpeechEnabled) {
