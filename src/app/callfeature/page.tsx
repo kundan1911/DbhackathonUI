@@ -46,7 +46,7 @@ export default function DialPad() {
 
   // === DIAL PAD VIEW ===
   const renderDialPad = () => (
-    <div className="w-full max-w-sm p-6 bg-black text-white rounded-2xl shadow-lg">
+    <div className="w-full max-w-sm p-6 bg-black text-white rounded-2xl shadow-lg mx-auto">
       <div className="text-2xl text-center mb-6 font-mono tracking-wider">
         {number || '(555) 555-5555'}
       </div>
@@ -80,7 +80,7 @@ export default function DialPad() {
 
   // === CALL SCREEN VIEW ===
   const renderCallScreen = () => (
-    <div className="w-full max-w-sm p-6 bg-gradient-to-b from-gray-900 to-black text-white rounded-2xl shadow-xl flex flex-col items-center">
+    <div className="w-full max-w-sm p-6 bg-black text-white rounded-2xl shadow-lg mx-auto">
       <img
         src="https://via.placeholder.com/80"
         alt="contact"
@@ -117,7 +117,7 @@ export default function DialPad() {
   );
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen w-full flex items-center justify-center bg-gray-100 px-4">
       {inCall ? renderCallScreen() : renderDialPad()}
     </div>
   );

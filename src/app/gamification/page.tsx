@@ -1,5 +1,5 @@
-import { SavingsChallenge } from '@/components/gamification/SavingsChallenge';
 import { Leaderboard } from '@/components/gamification/Leaderboard';
+import FinancialChallenges from '@/components/gamification/SavingsChallenge';
 
 export default function GamificationPage() {
   return (
@@ -13,7 +13,7 @@ export default function GamificationPage() {
         </p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-        <SavingsChallenge />
+        <FinancialChallenges />
         <Leaderboard />
       </div>
     </div>

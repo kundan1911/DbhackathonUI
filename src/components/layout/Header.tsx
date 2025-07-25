@@ -41,7 +41,7 @@ export function Header() {
       width={32}
       height={32}
       className="rounded-full mr-2"
-    />
+    /> Profile
               </Link>
             </Button>
             <Button variant="ghost" asChild>
