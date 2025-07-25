@@ -247,6 +247,7 @@ export default function ProfilePage(props: Partial<ProfileProps>) {
           </Accordion.Item>
           )}
           {/* Real Estate */}
+          {profile.investments?.real_estate && (
           <Accordion.Item value="real_estate">
             <Accordion.Trigger className="w-full flex justify-between items-center px-4 py-3 font-medium hover:bg-muted-foreground/10 transition">
               🏠 Real Estate
@@ -257,6 +258,7 @@ export default function ProfilePage(props: Partial<ProfileProps>) {
               </div>
             </Accordion.Content>
           </Accordion.Item>
+          )}
         </Accordion.Root>
       </div>
       )}
