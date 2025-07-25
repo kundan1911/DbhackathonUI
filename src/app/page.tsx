@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ChatInterface } from '@/components/chat/ChatInterface';
 import { speak, stopSpeaking } from '@/lib/speech';
 import { ChatControls } from '@/components/chat/ChatControls';
-
+import PhoneConversation from '@/components/chat/phoneConversation';
 export default function Home() {
   const [isSpeechEnabled, setIsSpeechEnabled] = useState(false);
   const [language, setLanguage] = useState('en');
@@ -32,7 +32,7 @@ export default function Home() {
         isSpeechEnabled={isSpeechEnabled}
         onToggleSpeech={handleToggleSpeech}
       />
-      
+      <div> <PhoneConversation/></div>
       <div className="flex-1 w-full h-full">
         <ChatInterface 
           isSpeechEnabled={isSpeechEnabled}
