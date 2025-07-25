@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Bot, Coins, Gamepad2 , GraduationCap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -30,6 +31,23 @@ export function Header() {
               <Link href="/education">
                 <GraduationCap className="h-4 w-4 mr-2" />
                 Education
+              </Link>
+            </Button>
+             <Button variant="ghost" asChild>
+              <Link href="/login">
+               <Image
+      src="/profile_img.jpg"
+      alt="Profile"
+      width={32}
+      height={32}
+      className="rounded-full mr-2"
+    />
+              </Link>
+            </Button>
+            <Button variant="ghost" asChild>
+              <Link href="/callfeature">
+                <Gamepad2 className="h-4 w-4 mr-2" />
+                Call feature
               </Link>
             </Button>
           </nav>
